@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // Core
 import { useContext, useState } from "react";
 

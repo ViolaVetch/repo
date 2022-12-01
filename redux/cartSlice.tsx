@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { createSlice, current } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
