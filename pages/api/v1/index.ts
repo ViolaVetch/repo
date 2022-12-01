@@ -27,11 +27,13 @@ export default async function handler(
     let response: ApiResponse;
 
     try {
+      console.log("Tried for the first time");
       // Find the current instance
       // If instance isn't found, return an error
       const website = await Website.findOne({}).lean();
       if (!website) return res.status(500).send("Something went wrong");
 
+      console.log("Website that was fond");
       // Find all pages
       const pages = await Page.find({ visibility: true });
 

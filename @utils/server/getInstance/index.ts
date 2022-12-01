@@ -19,12 +19,16 @@ export const getInstance = async (): Promise<Response> => {
     headers: { "Content-Type": "application/json" },
   };
 
+
   try {
+    console.log("Call happens", url, requestOptions)
     // Fetch instance
     const res = await fetch(url, requestOptions);
+
     // Fetched
     const data = await res.json();
-
+    console.log("Data that arrives", data)
+    
     // Return found instance
     return {
       err: false,

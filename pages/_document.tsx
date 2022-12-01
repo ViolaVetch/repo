@@ -17,12 +17,15 @@ export default class MyDocument extends Document {
       // Fetch current hyperscale instance to get hyperscale:owner
       const { err, instance } = await getInstance();
 
-      // Every time the page refreshes, set cookies
-      ctx.res?.setHeader("set-cookie", [
-        `instance=${JSON.stringify(instance)}; max-age=${
-          process.env.MAX_AGE
-        }; path=/; samesite=lax;`,
-      ]);
+      console.log(err, instance, "Making sure getInstance works properly");
+
+      if(!err)
+        // Every time the page refreshes, set cookies
+        ctx.res?.setHeader("set-cookie", [
+          `instance=${JSON.stringify(instance)}; max-age=${
+            process.env.MAX_AGE
+          }; path=/; samesite=lax;`,
+        ]);
     }
 
     try {
@@ -33,6 +36,7 @@ export default class MyDocument extends Document {
         });
 
       const initialProps = await Document.getInitialProps(ctx);
+      
       return {
         ...initialProps,
         styles: (
