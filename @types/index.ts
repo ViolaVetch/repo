@@ -16,7 +16,6 @@ export type {
 
 // Vendors
 import mongoose, { PopulatedDoc } from "mongoose";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { ThemeColors, ThemeSpaces } from "./Theme";
 
@@ -480,7 +479,7 @@ export interface IQuery {
 
 interface IMethod {
   setLoading: (a: boolean) => void;
-  dispatch: (e: PayloadAction<any>) => void;
+  dispatch: (e: any) => void;
   onError?: (data: unknown) => void;
   timeout?: number;
   model:
